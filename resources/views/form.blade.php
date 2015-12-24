@@ -10,19 +10,23 @@
     <div class="row">
         <div class="col-lg-3">
             <form class="form" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="panel panel-default">
+                {{ csrf_field() }}
+                <div class="panel panel-info">
                     <table class="table">
-                        <tr>
+                        <tr class="bg-info">
                             <th>x</th>
                             <th>y</th>
                         </tr>
-                        @foreach (range(1,2) as $item)
+                        @for ($i = 0; $i < 2; $i++)
+
                             <tr>
-                                <td class="td"><input type="text" name="x[]" class="form-control input"></td>
-                                <td class="td"><input type="text" name="y[]" class="form-control input"></td>
+                                @foreach (['x', 'y'] as $field)
+                                <td class="td">
+                                    <input type="text" name="{{ $field }}[]" class="form-control input @if ($errors->has($field . '.' . $i)) alert-danger @endif" value="{{ old($field . '.' . $i) }}" >
+                                </td>
+                                @endforeach
                             </tr>
-                        @endforeach
+                        @endfor
                     </table>
                 </div>
                 <button type="submit" class="btn btn-info">Calculate it please</button>
