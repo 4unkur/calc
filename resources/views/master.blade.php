@@ -8,6 +8,7 @@
     <title>Корреляция эсептөө</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
@@ -16,13 +17,13 @@
 </header>
 
 <div class="container">
-@yield('content')
+    @yield('content')
 </div>
 
 
 <footer class="footer">
     <div class="container">
-    <p>Application created by Artelov Daiyrbek a.k.a 4unkur</p>
+        <p>Application created by Artelov Daiyrbek a.k.a 4unkur</p>
         <p>© copyright</p>
     </div>
 </footer>
