@@ -115,3 +115,39 @@ body {
     color: #ecf0f1;
     padding-top: 20px;
 }
+
+.sans-serif {
+    font-style: italic;
+    font-family: "Times New Roman";
+    font-size: 120%;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 680px) {
+    td {
+        padding: 8px 0 !important;
+    }
+
+    .container > .content {
+        margin: 0 -15px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+}
+
+.center-block-custom {
+    float: none;
+}
+
+.row-centered {
+    text-align:center;
+    margin-bottom: 20px;
+}
+.col-centered {
+    text-align:center;
+    display:inline-block;
+    float:none;
+}
+
