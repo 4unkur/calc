@@ -8,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Correlation calculator">
     <meta property="og:description" content="This web application calculates correlation and other things from given values">
-    <meta property="og:image" content="/img/blur.jpg">
+    <meta property="og:image" content="/img/og_image.jpg">
 
     <title>Корреляция эсептөө</title>
 
