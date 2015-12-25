@@ -54,26 +54,33 @@ class AppController extends Controller
         $xy_avg = $avg($data['xy']);
         $x2_avg = $avg($data['x2']);
 
-        $this->b = ($xy_avg - $this->x_avg * $this->y_avg) / ($x2_avg - $square($this->x_avg));
-        $this->a = $this->y_avg - $this->b * $this->x_avg;
-        $data['y_avg'] = array_map([$this, 'yAvg'], $data['x']);
+        //intended to catch Division by zero error
+        try {
 
-        $data['diff_y_y_avg'] = array_map(function($y, $y_avg){
-            return $y - $y_avg;
-        }, $data['y'], $data['y_avg']);
+            $this->b = ($xy_avg - $this->x_avg * $this->y_avg) / ($x2_avg - $square($this->x_avg));
+            $this->a = $this->y_avg - $this->b * $this->x_avg;
+            $data['y_avg'] = array_map([$this, 'yAvg'], $data['x']);
 
-        $data['diff_y_y_avg2'] = array_map($square, $data['diff_y_y_avg']);
-        $data['A'] = array_map(function($y, $y_avg){
-            return pow($y - $y_avg, 2) / $y;
-        }, $data['y'], $data['y_avg']);
+            $data['diff_y_y_avg'] = array_map(function ($y, $y_avg) {
+                return $y - $y_avg;
+            }, $data['y'], $data['y_avg']);
 
-        $cov_xy = $xy_avg - $this->x_avg * $this->y_avg;
-        $sigma_x = array_sum(array_map([$this, 'sigmaX'], $data['x']));
-        $sigma_y = array_sum(array_map([$this, 'sigmaY'], $data['y']));
-        $r_xy = $cov_xy / ($sigma_x * $sigma_y);
-        $F_krit = ($square($r_xy) * ($n - 2))/ (1 - $square($r_xy));
+            $data['diff_y_y_avg2'] = array_map($square, $data['diff_y_y_avg']);
+            $data['A'] = array_map(function ($y, $y_avg) {
+                return pow($y - $y_avg, 2) / $y;
+            }, $data['y'], $data['y_avg']);
 
-        $avg_data = array_map($avg, $data);
+            $cov_xy = $xy_avg - $this->x_avg * $this->y_avg;
+            $sigma_x = array_sum(array_map([$this, 'sigmaX'], $data['x']));
+            $sigma_y = array_sum(array_map([$this, 'sigmaY'], $data['y']));
+            $r_xy = $cov_xy / ($sigma_x * $sigma_y);
+            $F_krit = ($square($r_xy) * ($n - 2)) / (1 - $square($r_xy));
+
+            $avg_data = array_map($avg, $data);
+
+        } catch (\ErrorException $e) {
+            return redirect()->back()->withErrors($e->getMessage())->withInput();
+        }
         $sum_data = array_map(function($array){return array_sum($array);}, $data);
 
         $calculated_data = [

@@ -12,6 +12,11 @@
 
     <title>Корреляция эсептөө</title>
 
+    <link rel="icon" href="/ico/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96"  href="/ico/android-icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/ico/apple-icon-152x152.png">
+
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
