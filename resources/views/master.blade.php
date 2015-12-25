@@ -7,7 +7,7 @@
     <meta property="og:url" content="{{ url('') }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Correlation calculator">
-    <meta property="og:description" content="This web application calculates correlation and other thing from given values" />
+    <meta property="og:description" content="This web application calculates correlation and other things from given values">
     <meta property="og:image" content="/img/blur.jpg">
 
     <title>Корреляция эсептөө</title>
@@ -32,17 +32,17 @@
     <div class="container">
         <p>
             <span class="pull-left">
-                <span id="fb-root"></span>
-                    <script>(function(d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0];
-                            if (d.getElementById(id)) return;
-                            js = d.createElement(s); js.id = id;
-                            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1608032129414638";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                    </script>
-
-                <span class="fb-like" data-href="{{ url('') }}" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></span>
+            <span id="fb-root"></span>
+            <script>
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1608032129414638";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+                <span class="fb-share-button" data-href="{{ url('') }}" data-layout="button_count"></span>
             </span>
             <small class="pull-right">Copyright © {{ \Carbon\Carbon::now()->format('Y') }}, <a href="https://github.com/4unkur">4unkur</a> All rights reserved.</small>
         </p>
