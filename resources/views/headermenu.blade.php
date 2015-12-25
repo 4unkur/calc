@@ -14,6 +14,7 @@
                 <li class="active"><a href="{{ url('') }}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="https://github.com/4unkur/calc"><i class="fa fa-lg fa-github"> </i> View source</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -6,14 +6,18 @@
             <form class="form col-xs-6 col-md-5 col-lg-4" method="post">
                 {{ csrf_field() }}
                 <div class="panel panel-info ">
-                    <table class="table ">
+                    <table class="table">
                         <tr class="bg-info">
                             <th>y</th>
-                            <th>x</th>
+                            <th>x<div class="btn-group btn-group-xs pull-right">
+                                    <button class="btn btn-success btn-xs add"><i class="fa fa-plus"></i></button>
+                                    <button class="btn btn-danger btn-xs    remove"><i class="fa fa-minus"></i></button>
+                                </div></th>
                         </tr>
-                        @for ($i = 0; $i < 7; $i++)
+                        <?php $n = count(old('x')) ? count(old('x')) : 5 ?>
+                        @for ($i = 0; $i < $n; $i++)
 
-                            <tr>
+                            <tr class="tr">
                                 @foreach (['y', 'x'] as $field)
                                 <td class="td">
                                     <input type="text" name="{{ $field }}[]" class="form-control input @if ($errors->has($field . '.' . $i)) alert-danger @endif" value="{{ old($field . '.' . $i) }}" >
@@ -23,7 +27,8 @@
                         @endfor
                     </table>
                 </div>
-                <button type="submit" class="btn btn-info btn-block">Calculate it please</button>
+                <button type="reset" class="btn btn-danger btn-block clear"><i class="fa fa-close"> </i> Clear all</button>
+                <button type="submit" class="btn btn-info btn-block"><i class="fa fa-heart"> </i> Calculate it, pleeeeease</button>
             </form>
 
             @if (count($errors))
