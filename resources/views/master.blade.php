@@ -44,7 +44,7 @@
             </script>
                 <span class="fb-share-button" data-href="{{ url('') }}" data-layout="button_count"></span>
             </span>
-            <small class="pull-right">Copyright © {{ \Carbon\Carbon::now()->format('Y') }}, <a href="https://github.com/4unkur">4unkur</a> All rights reserved.</small>
+            <small class="pull-right">Copyright © {{ \Carbon\Carbon::now()->format('Y') }} Created by <a href="https://github.com/4unkur">4unkur</a> <br> All rights reserved.</small>
         </p>
     </div>
 </footer>
